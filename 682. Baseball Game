@@ -1,0 +1,18 @@
+class Solution:
+    def calPoints(self, operations: List[str]) -> int:
+        array = []
+        summation = 0
+        for i in operations:
+            if i == "C":
+                array.pop()
+            elif i == "D":
+                array.append(2 * array[len(array)-1])
+            elif i == "+":
+                array.append(array[len(array)-1] + array[len(array)-2])
+            else:
+                array.append(int(i))
+        for i in array:
+            summation = summation + i
+        return summation
+                
+                
