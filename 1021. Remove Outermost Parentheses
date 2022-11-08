@@ -1,0 +1,33 @@
+class Solution:
+    def removeOuterParentheses(self, s: str) -> str:
+        array = []
+        array1 = []
+        arr_sub_str = []
+        string = ""
+        
+        # Loop to decompose a string into different substrings
+        for i in s:
+            if i == '(':
+                
+                array.append("(")
+                array1.append("(")
+                
+            elif i == ')':
+                
+                array.pop()
+                array1.append(")")
+                
+            if len(array) == 0:
+                arr_sub_str.append(array1)
+                array1 = []
+        # Loop to remove outer parenthesis of each sub string
+        for i in arr_sub_str:   
+            i.pop(0)
+            i.pop(len(i) - 1)
+            
+                
+        string  = ""
+        for i in arr_sub_str:
+            for j in i:
+                string = string + j
+        return string
