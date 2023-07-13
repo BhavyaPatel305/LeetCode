@@ -1,0 +1,31 @@
+import collections
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        value = target
+
+        output = []
+
+        Collections = collections.Counter(nums)
+        uniqueEle = list(Collections.keys())
+        occurances = list(Collections.values())
+        
+        for i in nums:
+            
+            diff = value - i
+            
+
+            occurances[uniqueEle.index(i)] -= 1
+            
+            if diff in uniqueEle and occurances[uniqueEle.index(diff)]>0:
+                
+                if diff == i:
+                    
+                    output.append(nums.index(i))
+                    output.append(nums.index(diff,nums.index(i)+1))
+                    
+                else:
+                    output.append(nums.index(diff))
+                    output.append(nums.index(i))
+            diff = 0
+
+        return output
