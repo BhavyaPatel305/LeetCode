@@ -1,0 +1,20 @@
+class Solution:
+    def myPow(self, x: float, n: int) -> float:
+        result = 1
+
+        #If n is negative
+        if n < 0:
+            x = 1/x
+            n = -n
+
+        # If n is positive
+        # using exponential by squaring
+        while n > 0:
+            # If n is odd
+            if n%2 == 1:
+                result *= x
+            # if n is even
+            # square the number
+            x *= x
+            n //= 2
+        return result
