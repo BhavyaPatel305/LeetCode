@@ -1,0 +1,24 @@
+
+class Solution:
+    def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
+        
+
+        # Convert 2D array into 1D array
+        array = [element for row in matrix for element in row]
+
+        # Now apply binary search
+        low = 0
+        high = len(array)-1
+        print(array)
+        while low<=high:
+
+            mid = (high + low) // 2
+            print(mid)
+            if array[mid] == target:
+                return True
+            elif array[mid] < target:
+                low = mid + 1
+            elif array[mid] > target:
+                high = mid - 1
+                
+        return False
