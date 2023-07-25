@@ -1,0 +1,6 @@
+import collections
+class Solution:
+    def removeDuplicates(self, nums: List[int]) -> int:
+        nums[:] = sorted(list(collections.Counter(nums).keys()))
+        print(nums)
+        return len(nums)
