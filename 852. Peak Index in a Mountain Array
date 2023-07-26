@@ -1,0 +1,22 @@
+# 1 solution
+class Solution:
+    def peakIndexInMountainArray(self, arr: List[int]) -> int:
+        max_ele = max(arr)
+        return arr.index(max_ele)
+
+# 2 solution
+class Solution:
+    def peakIndexInMountainArray(self, arr: List[int]) -> int:
+        # Using binary search
+        left = 0
+        right = len(arr) - 1
+
+        while left<right:
+            mid = left + ((right - left) // 2)
+            # still on the ascending side of the mountain
+            if arr[mid] < arr[mid+1]:
+                left += 1
+            # means we are on the descending side of the mountain
+            else:
+                right = mid
+        return left
