@@ -1,0 +1,26 @@
+class Solution:
+    def buddyStrings(self, s: str, goal: str) -> bool:
+        if len(s) != len(goal):
+            return False
+
+        arr_s = [char for char in s]
+        arr_goal = [char for char in goal]
+        diff_index = []
+
+        for i in range(min(len(arr_s), len(arr_goal))):
+            if arr_s[i] != arr_goal[i]:
+                diff_index.append(i)
+                 
+        if len(diff_index) == 0:
+            return len(set(arr_s)) < len(arr_s)
+        if len(diff_index) != 2:
+            return False
+        temp = arr_s[diff_index[0]]
+        arr_s[diff_index[0]] = arr_s[diff_index[1]]
+        arr_s[diff_index[1]] = temp
+
+        if arr_s == arr_goal:
+            return True
+        return False
+
+
