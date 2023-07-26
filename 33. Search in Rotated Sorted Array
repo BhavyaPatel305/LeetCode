@@ -1,3 +1,4 @@
+# 1 solution: Bit slower
 class Solution:
     def search(self, nums: List[int], target: int) -> int:
         # using binary search
@@ -21,3 +22,13 @@ class Solution:
                 else:
                     right = mid - 1
         return -1
+
+
+
+
+# 2 solution: Faster and eifficient
+class Solution:
+    def search(self, nums: List[int], target: int) -> int:
+        if target not in nums:
+            return -1
+        return nums.index(target)
