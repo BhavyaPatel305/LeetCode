@@ -1,0 +1,15 @@
+class Solution:
+    def removeElement(self, nums: List[int], val: int) -> int:
+        array = sorted(nums)
+        cnt = 0
+        try:
+            while True:
+                ind = array.index(val)
+                cnt += 1
+                array.pop(ind)
+        except:
+            for i in range(len(array)):
+                nums[i] = array[i]
+            for i in range(cnt):
+                nums.pop()
+            return len(nums)
