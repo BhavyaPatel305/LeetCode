@@ -1,0 +1,11 @@
+import collections
+import math
+class Solution:
+    def majorityElement(self, nums: List[int]) -> int:
+        comb = collections.Counter(nums)
+        unique_ele = list(comb.keys())
+        counts = list(comb.values())
+        for i in counts:
+            if i > math.floor(len(nums)/2):
+                return unique_ele[counts.index(i)]
+
